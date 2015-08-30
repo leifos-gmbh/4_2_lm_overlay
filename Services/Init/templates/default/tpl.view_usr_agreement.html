@@ -1,0 +1,53 @@
+<div class="ilFrame" style="margin-top:5px; width:700px; margin-left:auto; margin-right:auto;"><div class="ilFrameH"><div class="ilFrameTL"><div class="ilFrameTR">
+<img src="./templates/default/images/HeaderIcon.png" border="0" style="margin: 20px;"/>
+<div class="ilFrameBL"><div class="ilFrameBR" style="min-height: 450px;">
+<div style="padding:35px 10px;">
+{STATUSLINE}
+<div class="il_Header">
+	<div style="float:right;">
+		<form name="languageselection" action="{AGR_LANG_ACTION}" method="post">
+		<input type="hidden" name="cmd[{LANG_VAL_CMD}]" value="{LANG_VAL_CMD}" />
+		<select name="change_lang_to" onChange="this.form.submit()">
+			<option value="">{TXT_CHOOSE_LANGUAGE}</option>
+		<!-- BEGIN languages -->
+			<option value="{LANG_KEY}" {SELECTED_LANG}>{LANG_NAME}</option>
+		<!-- END languages -->
+		</select>
+		<input class="submit" type="submit" value="{TXT_OK}" />
+		</form>
+	</div>
+	<h1>{TXT_PAGEHEADLINE}</h1>
+</div>
+{MESSAGE}
+<br />
+<table class="fullwidth">
+<tr class="tblheader">
+ <td class="std">{TXT_AGREEMENT}</td>
+</tr>
+<tr class="std">
+ <td class="std">{TXT_USR_AGREEMENT}</td>
+</tr>
+<tr>
+<td class="std">
+ </td>
+</tr>
+<!-- BEGIN get_acceptance -->
+<tr class="std">
+    <td class="std">
+	<form action="{FORM_ACTION}" method="post">
+	<b><label for="status">{ACCEPT_AGREEMENT}</label></b>&nbsp;
+    {ACCEPT_CHECKBOX}&nbsp;
+	<input type="submit" class="submit" name="cmd[getAcceptance]" value="{TXT_SUBMIT}" />
+	</form>
+    </td>
+</tr>
+<!-- END get_acceptance -->
+</table>
+</div>
+<br/>
+<div style="text-align:center;">
+<!-- BEGIN back -->
+<a class="il_ContainerItemCommand" href="{LINK_BACK}">{BACK}</a>
+<!-- END back -->
+</div>
+</div></div></div></div></div></div>

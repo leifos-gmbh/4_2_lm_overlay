@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0 plus SVG 1.1//EN"
+	"http://www.w3.org/2002/04/xhtml-math-svg/xhtml-math-svg.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>ILIAS - Personal Desktop</title>
+	
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-language" content="en" />
+		
+		<link rel="stylesheet" type="text/css" href="./templates/default/delos.css?vers=3-9-6-2008-09-04" />
+		<link rel="stylesheet" type="text/css" href="./templates/default/delos_cont.css?vers=3-9-6-2008-09-04" />
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+		<style type="text/css">
+			div.clearer {
+				clear:both;
+				font-size:1px;
+				line-height:1px;
+				display:block;
+				height:1px;
+			} 
+		</style>
+	</head>
+	
+	<body>
+
+		<div id="main-container">
+			<div align="center">
+
+				<img src="./templates/default/images/ilias_logo_big.png" border="0" style="margin: 20px;" />
+				<div><a href="{HREF_USERTRACKING_LINK}"><input onClick="document.location.href='{HREF_USERTRACKING_LINK}'; return false;" class="submit" type="button" value="{TXT_USERTRACKING_LINK}"/></a><br /><br /></div>
+				
+				<!-- BEGIN message -->
+					<div class="message">{MESSAGE}</div>
+					<br />
+				<!-- END message -->
+				
+				{MAIN_CONTENT}
+
+			</div>
+		</div>
+	
+	</body>
+
+</html>
