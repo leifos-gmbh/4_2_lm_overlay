@@ -37,7 +37,7 @@
 	</ilFrame>
 	<ilLinkTargets>
 		<LinkTarget Type="New" Frame="_blank"/>
-		<LinkTarget Type="FAQ" Frame="right"/>
+		<LinkTarget Type="FAQ" Frame="right" OnClick="openPageOverlay(this, event, true);"/>
 		<LinkTarget Type="Glossary" Frame="right"/>
 		<LinkTarget Type="Media" Frame="right"/>
 	</ilLinkTargets>

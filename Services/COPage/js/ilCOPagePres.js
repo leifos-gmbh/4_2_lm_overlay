@@ -787,3 +787,38 @@ ilCOPagePres =
 
 }
 ilAddOnLoad(function() {ilCOPagePres.init();});
+
+// patch endriss start
+function getURLParameter(name, url) {
+	return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(url)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+
+/*
+ * open a page in overlay, should only be called for FAQ target
+ */
+function openPageOverlay(t, e, call_dyn) {
+	var type = getURLParameter('obj_type', t.href),
+		ref_id, obj_id;
+
+	if (type == 'PageObject') {
+		ref_id = getURLParameter('ref_id', t.href);
+		obj_id = getURLParameter('obj_id', t.href);
+
+		// create overlay, if it does not exist
+		if(!$('#page_overlay').length) {
+			$('body').append($('<div id="page_overlay" class="ilOverlay"></div>'));
+			ilOverlay.add('page_overlay', {});
+		}
+		//ilOverlay.show(e, 'page_overlay', null, true, null, null);
+		ilOverlay.show(e, 'page_overlay', t.id, false, 'tl', 'bl');
+		// put content in overlay
+		ilUtil.ajaxReplaceInner('ilias.php?cmdClass=illmpresentationgui&baseClass=ilLMPresentationGUI&cmd=getPageOverlay&ref_id=' + ref_id + '&obj_id=' + obj_id, 'page_overlay');
+		e.preventDefault();
+		return;
+	}
+
+	if (call_dyn) {
+		ilToc3WinDynOpenFrame();
+	}
+}
+// patch endriss end

@@ -11,7 +11,7 @@ require_once("./Services/Style/classes/class.ilObjStyleSheet.php");
 * GUI class for learning module presentation
 *
 * @author Alex Killing <alex.killing@gmx.de>
-* @version $Id: class.ilLMPresentationGUI.php 33652 2012-03-09 17:01:59Z akill $
+* @version $Id: class.ilLMPresentationGUI.php 50514 2014-06-04 09:38:51Z akill $
 *
 * @ilCtrl_Calls ilLMPresentationGUI: ilNoteGUI, ilInfoScreenGUI, ilShopPurchaseGUI
 * @ilCtrl_Calls ilLMPresentationGUI: ilPageObjectGUI, ilCommonActionDispatcherGUI
@@ -4280,6 +4280,37 @@ class ilLMPresentationGUI
 	{
 		$this->tpl->setHeaderPageTitle($this->lm->getTitle());
 		$this->tpl->fillWindowTitle();
-	}			
+	}
+
+	// patch endriss start
+	/**
+	 * Get page overlay
+	 *
+	 * @param
+	 * @return
+	 */
+	function getPageOverlay()
+	{
+		$ov = "<div style='padding: 5px; max-width: 400px; max-height: 200px;'>";
+
+			$ov.= "<div style='float:right'>";
+			$ov.= "<img src='".ilUtil::getImagePath("icon_close2_s.gif")."' onclick='ilOverlay.hide(event, \"page_overlay\");' />";
+			$ov.= "</div>";
+
+			$ov.= "<div style='clear:both; padding: 10px;'>";
+
+			$pg_gui = new ilPageObjectGUI("lm", $_GET["obj_id"]);
+			$pg_gui->setTemplateOutput(false);
+			$pg_gui->setRawPageContent(true);
+			$ov.= $pg_gui->showPage();
+			$ov.= "</div>";
+
+		$ov.= "</div>";
+
+		echo $ov;
+		exit;
+	}
+
+	// patch endriss end
 }
 ?>

@@ -47,7 +47,7 @@
 	</ilFrame>
 	<ilLinkTargets>
 		<LinkTarget Type="New" Frame="_blank"/>
-		<LinkTarget Type="FAQ" Frame="bottomright" OnClick="ilToc3WinDynOpenFrame();"/>
+		<LinkTarget Type="FAQ" Frame="bottomright" OnClick="openPageOverlay(this, event, true);"/>
 		<LinkTarget Type="Glossary" Frame="bottomright" OnClick="ilToc3WinDynOpenFrame();"/>
 		<LinkTarget Type="Media" Frame="bottomright" OnClick="ilToc3WinDynOpenFrame();"/>
 	</ilLinkTargets>
